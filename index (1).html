@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rangga Dwi Andika K — Web Developer</title>
+<meta name="description" content="Portofolio Rangga Dwi Andika K, web developer yang fokus pada Laravel, Tailwind CSS, dan desain antarmuka.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#eef1f0; --panel:#e2e8e5; --ink:#12201b; --muted:#53635c;
+  --line:#c5d0cb; --accent:#2540d9; --accent-ink:#fff;
+  --display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
+  --body:'DM Sans','Segoe UI',system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0f1613; --panel:#18221e; --ink:#e8efeb; --muted:#93a39b;
+    --line:#2a3832; --accent:#8fa2ff; --accent-ink:#0f1613;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0f1613; --panel:#18221e; --ink:#e8efeb; --muted:#93a39b;
+  --line:#2a3832; --accent:#8fa2ff; --accent-ink:#0f1613;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{background:var(--paper);color:var(--ink);font:400 1.0625rem/1.65 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.shell{display:grid;grid-template-columns:260px 1fr;gap:64px;max-width:1120px;margin:0 auto;padding:48px 24px}
+aside{position:sticky;top:48px;align-self:start;height:calc(100vh - 96px);display:flex;flex-direction:column;justify-content:space-between}
+.brand{font:800 1.5rem/1.1 var(--display);letter-spacing:-.02em;text-decoration:none}
+.role{color:var(--muted);margin-top:8px;font-size:.95rem}
+nav ul{list-style:none;padding:0;margin-top:40px;display:grid;gap:4px}
+nav a{display:inline-block;padding:6px 0;text-decoration:none;color:var(--muted);border-left:3px solid transparent;padding-left:14px;transition:color .15s,border-color .15s}
+nav a:hover,nav a[aria-current="true"]{color:var(--ink);border-color:var(--accent)}
+.side-foot{display:grid;gap:10px;font-size:.95rem}
+.side-foot a{color:var(--muted)}
+.side-foot a:hover{color:var(--ink)}
+#theme{all:unset;cursor:pointer;color:var(--muted);font-size:.9rem;width:max-content}
+#theme:hover{color:var(--ink)}
+main{min-width:0}
+section{padding:0 0 96px}
+h1{font:800 clamp(2.6rem,6.5vw,5rem)/.98 var(--display);letter-spacing:-.035em;max-width:14ch}
+.lead{font-size:1.2rem;color:var(--muted);max-width:52ch;margin-top:28px}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.btn{display:inline-block;padding:12px 22px;border-radius:999px;font-weight:500;text-decoration:none;border:1.5px solid var(--ink);transition:background .15s,color .15s}
+.btn.main{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:hover{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+h2{font:700 1.75rem/1.2 var(--display);letter-spacing:-.02em;margin-bottom:28px}
+.about p{max-width:60ch;margin-bottom:16px}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px;margin-top:36px}
+.skills h3{font:700 1rem var(--display);margin-bottom:6px}
+.skills p{color:var(--muted);font-size:.95rem}
+.proj{border-top:1px solid var(--line)}
+.proj:last-child{border-bottom:1px solid var(--line)}
+.proj a.row{display:grid;grid-template-columns:1fr auto;gap:8px 24px;padding:26px 0;text-decoration:none}
+.proj h3{font:700 1.4rem/1.2 var(--display);letter-spacing:-.01em;transition:color .15s}
+.proj p{color:var(--muted);max-width:56ch;margin-top:6px}
+.tags{color:var(--muted);font-size:.9rem;margin-top:10px}
+.year{color:var(--muted);font-size:.95rem;text-align:right}
+.proj a.row:hover h3{color:var(--accent)}
+.proj a.row:hover .go{transform:translateX(4px)}
+.go{display:inline-block;transition:transform .15s}
+.timeline{display:grid;gap:28px}
+.item{display:grid;grid-template-columns:130px 1fr;gap:20px}
+.item time{color:var(--muted);font-size:.95rem;padding-top:3px}
+.item h3{font:700 1.1rem var(--display)}
+.item p{color:var(--muted)}
+.cert{border-top:1px solid var(--line);padding:14px 0;display:flex;justify-content:space-between;gap:16px}
+.cert:last-child{border-bottom:1px solid var(--line)}
+.cert a{color:var(--accent);white-space:nowrap}
+.mail{font:800 clamp(1.5rem,4vw,2.6rem)/1.1 var(--display);letter-spacing:-.025em;word-break:break-word}
+footer{color:var(--muted);font-size:.9rem;padding-bottom:24px}
+.hero-in{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero-in{animation:none}*{transition:none!important}}
+@media (max-width:820px){
+  .shell{grid-template-columns:1fr;gap:32px;padding:28px 20px}
+  aside{position:static;height:auto;gap:20px}
+  nav ul{grid-auto-flow:column;justify-content:start;gap:18px;margin-top:20px}
+  nav a{border-left:0;padding:4px 0;border-bottom:3px solid transparent}
+  nav a:hover,nav a[aria-current="true"]{border-color:var(--accent)}
+  .side-foot{display:none}
+  section{padding-bottom:72px}
+  .item{grid-template-columns:1fr;gap:2px}
+  .proj a.row{grid-template-columns:1fr}
+  .year{text-align:left}
+}
+.photo{width:120px;height:120px;border-radius:50%;background:var(--panel);border:1px solid var(--line);display:grid;place-items:center;font:800 2.2rem var(--display);color:var(--muted);overflow:hidden;margin-bottom:28px}
+.photo img{width:100%;height:100%;object-fit:cover}
+.id{display:grid;grid-template-columns:90px 1fr;gap:6px 16px;margin:0 0 28px}
+.id dt{color:var(--muted)}.id dd{margin:0;font-weight:500}
+.stats{display:flex;flex-wrap:wrap;gap:36px;margin:8px 0 32px}
+.stats b{display:block;font:800 2rem/1 var(--display)}.stats span{color:var(--muted);font-size:.9rem}
+.now{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin:32px 0}
+.now h3,.sub{font:700 1rem var(--display)}.now p{color:var(--muted);font-size:.95rem}
+.sub{margin:36px 0 16px}
+.tools{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin-top:8px}
+.tools li{border:1px solid var(--line);border-radius:999px;padding:4px 14px;font-size:.9rem}
+.ach{border-top:1px solid var(--line);padding:22px 0;display:grid;grid-template-columns:90px 1fr;gap:4px 20px}
+.ach:last-of-type{border-bottom:1px solid var(--line)}
+.ach time{color:var(--muted)}.ach h3{font:700 1.15rem var(--display)}
+.ach .org{color:var(--muted);font-size:.95rem}.ach p{margin-top:6px;max-width:58ch}.ach a{color:var(--accent)}
+.links{display:grid;gap:10px;margin:28px 0}.links a{width:max-content}
+@media (max-width:820px){.ach{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside>
+    <div>
+      <a class="brand" href="#top">Rangga Dwi Andika K.</a>
+      <p class="role">Web developer, mahasiswa Teknik Informatika</p>
+      <nav aria-label="Navigasi utama">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">What I Can Do</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#achievement">Achievement</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="side-foot">
+      <a href="https://github.com/ranggadwiandikak25">GitHub</a>
+      <a href="https://www.linkedin.com/in/rangga-dwi-andika-k-166b6a2a5">LinkedIn</a>
+      <a href="cv.pdf">Resume</a>
+      <button id="theme" type="button" aria-label="Ganti tema terang atau gelap">Ganti tema</button>
+    </div>
+  </aside>
+
+  <main id="top">
+    <section class="hero-in">
+         <div class="photo"><img src="foto.jpeg" alt="Rangga Dwi Andika K"></div>
+      <h1>Saya membangun produk digital yang rapi dan berguna.</h1>
+      <p class="lead">Halo, saya Rangga Dwi Andika K. Saya mengerjakan aplikasi web dari database sampai tampilan, dengan fokus pada kecepatan dan kemudahan pakai.</p>
+      <div class="btns">
+        <a class="btn main" href="#work">Lihat proyek</a>
+        <a class="btn" href="#contact">Hubungi saya</a>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <h2>About</h2>
+      <dl class="id">
+        <dt>Nama</dt><dd>Rangga Dwi Andika K.</dd>
+        <dt>NIM</dt><dd>26051204145</dd>
+        <dt>Prodi</dt><dd>Teknik Informatika, Universitas Negeri Surabaya</dd>
+      </dl>
+      <p>Saya mahasiswa Teknik Informatika yang terbiasa mengerjakan sistem secara utuh: merancang database, membuat backend, lalu menyusun antarmukanya. Di luar kampus saya membuat alat bantu untuk usaha lokal.</p>
+      <div class="stats">
+        <div><b>1</b><span>Proyek</span></div>
+        <div><b>0</b><span>Sertifikat</span></div>
+        <div><b>2030</b><span>Target lulus</span></div>
+      </div>
+      <h3 class="sub">Pendidikan</h3>
+      <div class="timeline">
+        <div class="item"><time>2026 – sekarang</time><div><h3>Universitas Negeri Surabaya</h3><p>S1 Teknik Informatika.</p></div></div>
+        <div class="item"><time>2022 – 2025</time><div><h3>SMA Negeri 1 Soko</h3><p>IPA</p></div></div>
+      </div>
+      <h3 class="sub">Aktivitas saat ini</h3>
+      <div class="now">
+        <div><h3>Building</h3><p>Aplikasi web untuk usaha lokal</p></div>
+        <div><h3>Exploring</h3><p>Pengujian perangkat lunak</p></div>
+        <div><h3>Learning</h3><p>Pengembangan full-stack</p></div>
+      </div>
+      <a class="btn" href="cv.pdf">Download resume →</a>
+    </section>
+
+    <section id="skills">
+      <h2>What I Can Do</h2>
+      <div class="skills">
+        <div><h3>Web development</h3><p>Membangun aplikasi web lengkap dengan login, database, dan dashboard.</p></div>
+        <div><h3>Desain antarmuka</h3><p>Tampilan responsif yang mudah dipakai di HP dan laptop.</p></div>
+        <div><h3>Pengujian sistem</h3><p>Mencari bug dan memastikan fitur berjalan sesuai kebutuhan.</p></div>
+      </div>
+      <h3 class="sub">Tools</h3>
+      <ul class="tools"><li>Laravel</li><li>PHP</li><li>MySQL</li><li>Tailwind CSS</li><li>JavaScript</li><li>Next.js</li><li>Git</li><li>Figma</li></ul>
+    </section>
+
+    <section id="work">
+      <h2>Work</h2>
+            <article class="proj">
+        <a class="row" href="https://github.com/ranggadwiandikak25/portfolio-website">
+          <div>
+            <h3>Website Portofolio Pribadi <span class="go">→</span></h3>
+            <p>Website portofolio responsif dengan mode terang dan gelap. Dibuat dengan bantuan AI sebagai bahan belajar HTML, CSS, JavaScript, dan Git.</p>
+            <p class="tags">HTML, CSS, JavaScript, Git</p>
+          </div>
+          <span class="year">2026</span>
+        </a>
+      </article>
+    </section>
+
+    <section id="achievement">
+      <h2>Achievement</h2>
+            <div class="ach">
+        <time>2026</time>
+        <div><h3>Diterima di Teknik Informatika</h3><p class="org">Universitas Negeri Surabaya</p><p>Lolos seleksi masuk dan menjadi mahasiswa baru Teknik Informatika angkatan 2026.</p></div>
+      </div>
+      <div class="ach">
+        <time>2026</time>
+        <div><h3>Membuat Website Portofolio Pertama</h3><p class="org">Mandiri</p><p>Menyusun website portofolio pribadi dengan HTML, CSS, dan JavaScript, lalu mengunggahnya ke GitHub.</p><p><a href="https://github.com/ranggadwiandikak25/portfolio-website">Lihat bukti</a></p></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p class="lead" style="margin:0">Sedang mencari kesempatan magang dan proyek. Kirim pesan, saya balas secepatnya.</p>
+      <div class="links">
+        <a class="mail" href="mailto:ranggadwiandikak@gmail.com">ranggadwiandikak@gmail.com</a>
+        <a href="https://github.com/ranggadwiandikak25">github.com/ranggadwiandikak25</a>
+        <a href="https://www.linkedin.com/in/rangga-dwi-andika-k-166b6a2a5">linkedin.com/ranggadwiandikak</a>
+      </div>
+      <div class="btns"><a class="btn main" href="mailto:ranggadwiandikak@gmail.com">Kirim pesan →</a><a class="btn" href="cv.pdf">Download CV</a></div>
+    </section>
+
+    <footer>© 2026 Rangga Dwi Andika K</footer>
+  </main>
+</div>
+
+<script>
+// Tema: ingat pilihan jika penyimpanan tersedia
+(function(){
+  var root=document.documentElement,btn=document.getElementById('theme');
+  try{var s=localStorage.getItem('theme');if(s)root.dataset.theme=s}catch(e){}
+  btn.addEventListener('click',function(){
+    var dark=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches;
+    root.dataset.theme=dark?'light':'dark';
+    try{localStorage.setItem('theme',root.dataset.theme)}catch(e){}
+  });
+  // Tandai menu aktif saat scroll
+  var links=[].slice.call(document.querySelectorAll('nav a'));
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting)links.forEach(function(a){
+        a.setAttribute('aria-current',a.getAttribute('href')==='#'+e.target.id)
+      })
+    })
+  },{rootMargin:'-30% 0px -60% 0px'});
+  document.querySelectorAll('section[id]').forEach(function(s){io.observe(s)});
+})();
+</script>
+</body>
+</html>
